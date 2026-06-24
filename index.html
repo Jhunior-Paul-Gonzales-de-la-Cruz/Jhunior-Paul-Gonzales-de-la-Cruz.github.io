@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gelatinas Delicias</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f8f8f8;
+    color:#333;
+}
+
+header{
+    background:linear-gradient(135deg,#0000ff,#7CFC00);
+    color:white;
+    padding:20px;
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+.navbar{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:1.8rem;
+    font-weight:bold;
+}
+
+nav ul{
+    display:flex;
+    gap:20px;
+    list-style:none;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.menu-btn{
+    display:none;
+    cursor:pointer;
+    font-size:30px;
+}
+
+.hero{
+    background:white;
+    text-align:center;
+    padding:80px 20px;
+}
+
+.hero h1{
+    color:#FF0000;
+    font-size:3rem;
+}
+
+.hero p{
+    margin-top:15px;
+    font-size:1.1rem;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:20px;
+    padding:12px 25px;
+    background:#0000ff;
+    color:white;
+    border:none;
+    border-radius:8px;
+    text-decoration:none;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#00AAE4;
+}
+
+/* Estilo específico para el botón de WhatsApp */
+.btn-whatsapp {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 25px;
+    background: #25D366;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.btn-whatsapp:hover {
+    background: #128C7E;
+    transform: scale(1.03);
+}
+
+section{
+    padding:60px 20px;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+}
+
+.titulo{
+    text-align:center;
+    margin-bottom:40px;
+    color:#FF0000;
+}
+
+.productos{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:white;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 3px 10px rgba(0,0,0,.1);
+}
+
+.card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:20px;
+}
+
+.galeria{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.galeria img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    border-radius:10px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:rgb(230, 223, 223);
+}
+
+th, td{
+    border:1px solid #ddd;
+    padding:12px;
+    text-align:center;
+}
+
+th{
+    background:#006400;
+    color:white;
+}
+
+.pedidos{
+    background:white;
+    padding:30px;
+    border-radius:10px;
+    text-align:center;
+}
+
+.distribuidores{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.persona{
+    background:white;
+    width:300px;
+    padding:20px;
+    border-radius:10px;
+    text-align:center;
+    box-shadow:0 3px 10px rgba(0,0,0,.1);
+}
+
+.persona img{
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+footer{
+    background:#222;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+@media (max-width:768px){
+
+    nav ul{
+        display:none;
+        flex-direction:column;
+        position:absolute;
+        right:20px;
+        top:75px;
+        background:#006400;
+        padding:20px;
+        border-radius:10px;
+    }
+
+    nav ul.active{
+        display:flex;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    .hero h1{
+        font-size:2.2rem;
+    }
+}
+</style>
+
+</head>
+<body>
+
+<header>
+    <div class="navbar">
+        <div class="logo">🍮 Gelatinas Delicias - J&J</div>
+
+        <nav>
+            <ul id="menu">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="#galeria">Galería</a></li>
+                <li><a href="#nutricion">Nutrición</a></li>
+                <li><a href="#pedidos">Pedidos</a></li>
+                <li><a href="#distribuidores">Distribuidores</a></li>
+            </ul>
+        </nav>
+
+        <div class="menu-btn" onclick="toggleMenu()">☰</div>
+    </div>
+</header>
+
+<section class="hero" id="inicio">
+    <h1>Gelatinas Delicias - J&J</h1>
+
+    <img src="https://i.ibb.co/N25mgyvB/logo-png.png" alt="Logo" width="250">
+
+    <p>
+        Gelatinas frescas, deliciosas y elaboradas con ingredientes de calidad.
+    </p>
+
+    <a href="#productos" class="btn">Ver Productos</a>
+</section>
+
+<section id="productos">
+    <div class="container">
+
+        <h2 class="titulo">Nuestros Productos</h2>
+
+        <div class="productos">
+
+            <div class="card">
+                <img src="https://images.rappi.pe/products/1718031680446_1718031678151_1718031679952.png" alt="Gelatina de Fresa">
+                <div class="card-content">
+                    <h3>Gelatina de Fresa</h3>
+                    <p>Delicioso sabor natural a fresa.</p>
+                    <p>S/. 2.00</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://img.freepik.com/fotos-premium/gelatina-amarilla-aislada-sobre-fondo-blanco_646443-1287.jpg?w=2000" alt="Gelatina de Piña">
+                <div class="card-content">
+                    <h3>Gelatina de Piña</h3>
+                    <p>Refrescante sabor tropical.</p>
+                    <p>S/. 2.00</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://comohacergelatinas.com/wp-content/uploads/2016/09/como-hacer-gelatina-con-grenetina-natural-2.jpg" alt="Gelatina Blanca">
+                <div class="card-content">
+                    <h3>Gelatina Blanca</h3>
+                    <p>Sabor dulce y gentil para todos.</p>
+                    <p>S/. 2.00</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section id="galeria">
+    <div class="container">
+        <h2 class="titulo">Galería</h2>
+
+        <div class="galeria">
+            <img src="https://cdn.phototourl.com/free/2026-06-24-419ec40f-35dc-4aef-a60f-dabf61aafa6d.jpg" alt="">
+            <img src="https://i.ibb.co/N25mgyvB/logo-png.png" alt="">
+            <img src="https://cdn.phototourl.com/free/2026-06-24-6c45329b-d7d2-4b78-b67b-a860e9a14cce.jpg" alt="">
+        </div>
+    </div>
+</section>
+
+<section id="nutricion">
+    <div class="container">
+        <h2 class="titulo">Información Nutricional</h2>
+
+        <table>
+            <tr>
+                <th>Nutriente</th>
+                <th>Cantidad por Porción</th>
+            </tr>
+            <tr><td>Energía</td><td>80 kcal</td></tr>
+            <tr><td>Proteínas</td><td>2 g</td></tr>
+            <tr><td>Carbohidratos</td><td>18 g</td></tr>
+            <tr><td>Grasas</td><td>0 g</td></tr>
+            <tr><td>Azúcares</td><td>15 g</td></tr>
+        </table>
+    </div>
+</section>
+
+<section id="pedidos">
+    <div class="container">
+        <h2 class="titulo">Dirección de Pedidos</h2>
+
+        <div class="pedidos">
+            <p>¡Haz tu pedido de forma rápida y sencilla por WhatsApp!</p>
+            <br>
+            <p>N°: 916482796 - 904818448 --- Dirección: Calle Real 223</p>
+            <br>
+            <a href="https://wa.me/51916482796?text=Hola,%20me%20gustaría%20hacer%20un%20pedido%20de%20gelatinas" target="_blank" class="btn-whatsapp">
+                📲 Contactar por WhatsApp
+            </a>
+        </div>
+    </div>
+</section>
+
+<section id="distribuidores">
+    <div class="container">
+
+        <h2 class="titulo">Distribuidores</h2>
+
+        <div class="distribuidores">
+
+            <div class="persona">
+                <img src="https://cdn.phototourl.com/free/2026-06-23-05422e53-c3b0-4359-b44e-b33f53c0e340.jpg" width="250" height="250" alt="">
+                <h3>José Luis Gonzales de la Cruz</h3>
+                <p>Distribuidor Autorizado</p>
+            </div>
+
+            <div class="persona">
+                <img src="https://cdn.phototourl.com/free/2026-06-23-c4afa68d-83d2-4371-81f9-da3832ac92f7.jpg" width="250" height="250" alt="">
+                <h3>Jhunior Paul Gonzales de la Cruz</h3>
+                <p>Distribuidor Autorizado</p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 Gelatinas Delicias</p>
+</footer>
+
+<script>
+function toggleMenu() {
+    document
+        .getElementById("menu")
+        .classList
+        .toggle("active");
+}
+</script>
+
+</body>
+</html>
